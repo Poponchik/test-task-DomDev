@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Wrapper = styled.div``;
 
-const TodoList = styled.div`
+const Inner = styled.div`
   width: 600px;
   border: 1px solid #c5c4c4;
   margin: 0 auto;
@@ -54,6 +54,7 @@ const Button = styled.button<{ variant: Variant; width: string }>`
   width: ${(props) => props.width};
   color: #ffffff;
   border-radius: 4px;
+  padding: 8px;
   border: none;
   cursor: pointer;
 `;
@@ -63,16 +64,33 @@ const Content = styled.div`
 `;
 
 const Todos = styled.div`
+  height: 300px;
+  overflow-y: scroll;
   width: 100%;
   margin-top: 12px;
   border: 1px solid #c5c4c4;
-  display: flex;
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }
 `;
 
-const TodoWrapper = styled.div`
-  width: 100%;
+const TodoWrapper = styled.div<{ filled: boolean }>`
+  background: ${(props) => {
+    return props.filled ? "#F6F6F6" : "#fff";
+  }};
+  /* width: 100%;    */
+  border-bottom: 1px solid #c5c4c4;
   display: flex;
-  padding: 8px;
+  padding: 12px;
   justify-content: space-between;
 `;
 
@@ -82,19 +100,28 @@ const Text = styled.div`
   font-size: 14px;
   line-height: 14px;
 `;
+
 const TodoButtons = styled.div`
   display: flex;
   gap: 8px;
 `;
+
 const TextWrapper = styled.div`
   display: flex;
   gap: 8px;
   align-items: center;
 `;
 
+const EditInput = styled.input`
+  border-radius: 4px;
+  border: 1px solid #c5c4c4;
+  padding: 6px;
+`;
+
 export {
+  EditInput,
   Wrapper,
-  TodoList,
+  Inner,
   TitleWrapper,
   Title,
   Content,
@@ -107,5 +134,5 @@ export {
   Check,
   Text,
   TodoButtons,
-  TextWrapper
+  TextWrapper,
 };
