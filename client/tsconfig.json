@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noResolve": false,
+    "removeComments": true,
+    "sourceMap": true,
+    "allowJs": true,
+    "jsx": "react-jsx",
+    "lib": ["es6", "dom"],
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "strictNullChecks": true
+  },
+  "exclude": ["./node_modules/**/*"]
+}
