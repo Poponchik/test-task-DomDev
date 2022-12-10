@@ -100,7 +100,7 @@ export default function TodoList() {
                     {todo._id === editableTodo ? (
                       <EditInput
                         value={editInput}
-                        placeholder="Edit toto"
+                        placeholder="Edit todo"
                         onChange={(event) => {
                           setEditInput(event.target.value);
                         }}
